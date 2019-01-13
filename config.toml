@@ -2,6 +2,9 @@ baseURL = "//optimistic-mahavira-ccfd6a.netlify.com"
 languageCode = "en-us"
 title = "Marcelo Cantos"
 theme = "vanilla-bootstrap-hugo-theme"
+pygmentsCodeFences = true
+pygmentsCodeFencesGuessSyntax = true
+pygmentsStyle = "github"
 
 [menu]
   [[menu.main]]
