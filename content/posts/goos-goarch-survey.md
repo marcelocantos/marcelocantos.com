@@ -1,7 +1,6 @@
 ---
 title: "GOOS/GOARCH combos on macOS"
 date: 2019-01-13T21:11:10+11:00
-draft: true
 ---
 
 The following is a survey of GOOS/GOARCH support on my Mac, using [src/go/build/syslist.go@7cbfa5](https://github.com/golang/go/blob/7cbfa55b5d17c8deaecff05e4221f828467cfa97/src/go/build/syslist.go) as the source of combinations to try. The following table shows combinations that built successfully (✅) and those that failed (❌). The rest, denoted by ‘—’, were reported by Go as unsupported combinations, e.g.:
