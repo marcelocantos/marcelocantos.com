@@ -2,6 +2,6 @@
 publish = "public"
 command = "hugo --gc --minify"
 
-[context.deploy-preview.environment]
+[context.production.environment]
 HUGO_ENABLEGITINFO = "true"
 HUGO_BASEURL = "$DEPLOY_PRIME_URL"
