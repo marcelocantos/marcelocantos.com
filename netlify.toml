@@ -2,6 +2,13 @@
 publish = "public"
 command = "hugo --gc --minify -b"
 
+# Pin Hugo explicitly so builds are reproducible and independent of Netlify's
+# default. The previous stale pin (0.53, from 2019) could no longer be installed
+# by Netlify's mise toolchain (checksum mismatch). 0.163.3 is verified to build
+# the site with the project-level partial overrides in layouts/.
+[build.environment]
+HUGO_VERSION = "0.163.3"
+
 [context.production]
 command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
 

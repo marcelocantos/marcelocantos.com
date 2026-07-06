@@ -6,6 +6,13 @@ pygmentsCodeFences: true
 pygmentsCodeFencesGuessSyntax: true
 pygmentsStyle: github
 
+# Preserve raw HTML in Markdown (e.g. the <span> markup in the GOOS/GOARCH
+# table). Goldmark strips raw HTML by default (unsafe: false) since Hugo 0.60.
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 menu:
   main:
   - name: Home
