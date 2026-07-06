@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = "hugo --gc --minify -b"
+command = "hugo --gc --minify"
 
 # Pin Hugo explicitly so builds are reproducible and independent of Netlify's
 # default. The previous stale pin (0.53, from 2019) could no longer be installed
@@ -8,10 +8,9 @@ command = "hugo --gc --minify -b"
 # the site with the project-level partial overrides in layouts/.
 [build.environment]
 HUGO_VERSION = "0.163.3"
-
-[context.production]
-command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
-
-[context.production.environment]
 HUGO_ENABLEGITINFO = "true"
-HUGO_BASEURL = "$DEPLOY_PRIME_URL"
+
+# baseURL comes from config.yaml (https://marcelocantos.com/). The old config
+# set HUGO_BASEURL = "$DEPLOY_PRIME_URL" here, but env-var values in netlify.toml
+# are NOT interpolated, so Hugo used the literal string "$DEPLOY_PRIME_URL" as the
+# base URL — corrupting every absolute link, stylesheet, and script.
