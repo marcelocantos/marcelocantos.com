@@ -2,6 +2,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   {{ hugo.Generator }}
+  {{- /* RSS/Atom feed autodiscovery: lets readers and browsers detect the feed
+         from any page. Page-aware — home advertises the site feed, sections theirs. */}}
+  {{- range .AlternativeOutputFormats }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+  {{- end }}
   <link rel="stylesheet" href="{{ "css/bootstrap.min.css" | absURL }}">
   {{ $title := print .Title " | " .Site.Title }}
   {{ if .IsHome }}
